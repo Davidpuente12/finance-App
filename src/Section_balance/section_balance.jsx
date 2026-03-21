@@ -1,16 +1,14 @@
 import { useState } from "react";
 import { ItemTransaccion } from "./components/ItemTransaccion";
+import { useLocalStorage } from "./components/useLocalStorage";
+// css
 import "./section_balance.css";
 
-const listaOfExpenses = [
-  { tipo: "Supermercado", gasto: 18000 },
-  { tipo: "Panaderia", gasto: 32000 },
-  { tipo: "Bicicleta", gasto: 20000 },
-  { tipo: "Servicios", gasto: 50000 },
-];
-
 function SectionBalance() {
-  const [lista, setLista] = useState(listaOfExpenses);
+  // Estado de la lista
+  const [lista, actualizarLista] = useLocalStorage("gasto", []);
+
+  // Estado del input
   const [value, setValue] = useState("");
 
   //componentes derivados de lista
@@ -26,7 +24,7 @@ function SectionBalance() {
     return item.tipo.toLowerCase().includes(value.toLowerCase());
   });
 
-  //actualizar lista
+  //eliminar items
   function eliminarItem(index) {
     const nuevaLista = [...lista];
     const indice = nuevaLista.findIndex((item, indice) => {
@@ -35,7 +33,7 @@ function SectionBalance() {
       }
     });
     nuevaLista.splice(indice, 1);
-    setLista(nuevaLista);
+    actualizarLista(nuevaLista);
   }
 
   return (
