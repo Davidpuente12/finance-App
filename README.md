@@ -1,16 +1,59 @@
-# React + Vite
+# Finance App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web de finanzas personales construida con React y Vite.
 
-Currently, two official plugins are available:
+## Descripción del proyecto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Esta aplicación permite registrar ingresos y gastos, visualizar el balance mensual seleccionado y revisar el historial de transacciones con filtros por tipo, categoría y fecha.
 
-## React Compiler
+## Características principales
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Registro de transacciones de ingresos y gastos.
+- Filtros de búsqueda por concepto, categoría y fecha.
+- Balance total del mes seleccionado.
+- Visualización de estadísticas mensuales y anuales.
+- Almacenamiento local en el navegador usando Local Storage.
+- Interfaz en español, orientada a usuarios hispanohablantes.
 
-## Expanding the ESLint configuration
+## Estructura del proyecto
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- `src/App.jsx`: Componente principal que controla navegación, filtros y cálculo de totales.
+- `src/targetas/Targetas.jsx`: Tarjetas de resumen de balance, ingresos y gastos.
+- `src/Section_registro/section_registros.jsx`: Sección de historial y filtros de transacciones.
+- `src/Section_estadisticas/`: Componentes de resumen mensual y anual.
+- `src/Modal/`: Modal para crear y editar transacciones.
+- `src/utils/`: Utilidades de formato y fechas.
+- `src/hook/useLocalStorage.jsx`: Hook personalizado para persistir datos en Local Storage.
+
+## Dependencias
+
+- React 19
+- Vite
+- React Icons
+- ESLint
+
+## Scripts disponibles
+
+- `npm install`: Instala dependencias.
+- `npm run dev`: Inicia el servidor de desarrollo.
+- `npm run build`: Genera la versión de producción.
+- `npm run preview`: Previsualiza el build de producción.
+- `npm run lint`: Revisa el código con ESLint.
+
+## Uso
+
+1. Clona el repositorio.
+2. Ejecuta `npm install`.
+3. Corre `npm run dev`.
+4. Abre el navegador en la dirección que muestra Vite.
+
+## Mejoras posibles
+
+- Agregar autenticación para cuentas de usuario.
+- Implementar gráficos interactivos para análisis de gasto.
+- Añadir exportación/importación de datos en CSV.
+- Soporte para múltiples monedas.
+
+## Licencia
+
+Proyecto personal sin licencia específica. Puedes usarlo como base para tus propios desarrollos.
