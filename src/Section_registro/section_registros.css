@@ -1,0 +1,187 @@
+.section-registros {
+  width: 60%;
+  background: var(--bg-primary);
+}
+.section-registros-pages {
+  width: 100%;
+  margin-top: 40px;
+}
+@media (max-width: 1200px) {
+  .section-registros {
+    width: 50%;
+  }
+}
+
+.section-registros-head {
+  padding: 20px 20px 0;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ver-todos {
+  font-weight: bold;
+  font-size: var(--text-small);
+  color: var(--text-color-primary);
+  cursor: pointer;
+}
+.mayor-gasto {
+  color: var(--text-secondary);
+}
+.mayor-gasto span {
+  font-size: var(--text-small);
+  color: var(--text-primary);
+}
+.mayor-gasto b {
+  color: rgb(254, 93, 93);
+}
+
+/* LISTA */
+.section-registros-lista {
+  background: var(--bg-primary);
+  padding: 20px;
+  min-height: 400px;
+  max-height: 600px;
+  overflow-y: auto;
+  border-radius: 0 0 15px 15px;
+}
+.section-registros-lista::-webkit-scrollbar {
+  width: 10px;
+}
+.section-registros-lista::-webkit-scrollbar-track {
+  background: #383838;
+  border-radius: 8px;
+}
+.section-registros-lista::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #4facfe, rgb(34, 34, 87));
+  border-radius: 8px;
+}
+.section-registros-lista::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgb(34, 34, 87), #4facfe);
+}
+
+/* ITEMS */
+.section-registros-items {
+  background: var(--bg-header);
+  width: 100%;
+  padding: 10px;
+  margin: 8px auto;
+  border: 1px solid var(--border-primary);
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.section-registros-items div {
+  display: flex;
+  align-items: center;
+}
+.section-registros-items .item-fecha {
+  margin-left: 15px;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+.item-icon-delete {
+  font-size: var(--text-small);
+  color: var(--text-secondary);
+  margin-left: 10px;
+}
+.item-icon-delete:hover {
+  cursor: pointer;
+  color: var(--button-red);
+}
+
+.item-icon-edit {
+  color: var(--text-secondary);
+  margin-left: 20px;
+}
+.item-icon-edit:hover {
+  cursor: pointer;
+  color: white;
+}
+
+/* PANEL DE FILTROS */
+.sectionRegistros-filtros {
+  width: 100%;
+  margin: 10px auto;
+  background: var(--bg-primary);
+}
+.sectionRegistros-filtros-head {
+  background: linear-gradient(var(--bg-secondary), var(--bg-primary));
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 15px 15px 0 0;
+}
+.registros-filtros-avanzados {
+  padding: 20px;
+  display: flex;
+  gap: 15px;
+}
+.registros-filtros-avanzados > div {
+  position: relative;
+  width: 100%;
+}
+.registros-filtros-avanzados label {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--text-small);
+  color: var(--text-secondary);
+}
+.registros-filtros-avanzados select,
+.registros-filtros-avanzados input {
+  height: 40px;
+  padding-left: 10px;
+  margin-top: 10px;
+  background: var(--bg-body);
+  font-size: var(--text-small);
+  color: var(--text-secondary);
+  border-radius: 10px;
+  border: 1px solid var(--border-primary);
+  outline: none;
+}
+.registros-filtros-avanzados select:focus {
+  border: 1px solid var(--button-primary);
+  box-shadow: 0 0 5px rgb(79, 57, 246);
+}
+.registros-filtros-avanzados button {
+  width: 100%;
+  height: 40px;
+  background: var(--button-primary);
+  font-size: var(--text-small);
+  color: var(--text-primary);
+  font-weight: bold;
+  border-radius: 10px;
+  border: none;
+  position: absolute;
+  bottom: 0;
+}
+
+.sectionRegistros-search {
+  width: 450px;
+  height: 40px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+.sectionRegistros-search span {
+  margin: 0 10px;
+  font-size: 2rem;
+  color: var(--text-secondary);
+}
+.sectionRegistros-search input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  font-size: var(--text-small);
+  color: var(--text-secondary);
+  border: none;
+  outline: none;
+}
+.sectionRegistros-search:focus-within {
+  border: 1px solid var(--button-primary);
+  box-shadow: 0 0 5px rgb(79, 57, 246);
+}
