@@ -120,74 +120,68 @@ function SectionRegistros({
 
             <div className="registros-filtros-avanzados">
               <div>
-                <label>
-                  TIPO DE MOVIMIENTO{" "}
-                  <select
-                    value={filterType}
-                    onChange={(event) => onFilterTypeChange(event.target.value)}
-                  >
-                    <option value="todos">Todas las transacciones</option>
-                    <option value="ingreso">Solo Ingresos</option>
-                    <option value="gasto">Solo Gastos</option>
-                  </select>
-                </label>
+                <label>TIPO DE MOVIMIENTO</label>
+                <select
+                  value={filterType}
+                  onChange={(event) => onFilterTypeChange(event.target.value)}
+                >
+                  <option value="todos">Todas las transacciones</option>
+                  <option value="ingreso">Solo Ingresos</option>
+                  <option value="gasto">Solo Gastos</option>
+                </select>
               </div>
 
               <div>
-                <label>
-                  CATEGORIA
-                  <select
-                    value={filterCategory}
-                    onChange={(event) =>
-                      onFilterCategoryChange(event.target.value)
-                    }
-                  >
-                    <option value="todos">Todas las categorías</option>
-                    {filterType === "todos" ? (
-                      <>
-                        <optgroup label="Gastos">
-                          {categorias_gastos.map((c) => (
-                            <option key={c.name} value={c.name}>
-                              {c.name}
-                            </option>
-                          ))}
-                        </optgroup>
-                        <optgroup label="Ingresos">
-                          {categorias_ingresos.map((c) => (
-                            <option key={c.name} value={c.name}>
-                              {c.name}
-                            </option>
-                          ))}
-                        </optgroup>
-                      </>
-                    ) : filterType === "gasto" ? (
-                      categorias_gastos.map((c) => (
-                        <option key={c.name} value={c.name}>
-                          {c.name}
-                        </option>
-                      ))
-                    ) : (
-                      categorias_ingresos.map((c) => (
-                        <option key={c.name} value={c.name}>
-                          {c.name}
-                        </option>
-                      ))
-                    )}
-                  </select>
-                </label>
+                <label>CATEGORIA</label>
+                <select
+                  value={filterCategory}
+                  onChange={(event) =>
+                    onFilterCategoryChange(event.target.value)
+                  }
+                >
+                  <option value="todos">Todas las categorías</option>
+                  {filterType === "todos" ? (
+                    <>
+                      <optgroup label="Gastos">
+                        {categorias_gastos.map((c) => (
+                          <option key={c.name} value={c.name}>
+                            {c.name}
+                          </option>
+                        ))}
+                      </optgroup>
+                      <optgroup label="Ingresos">
+                        {categorias_ingresos.map((c) => (
+                          <option key={c.name} value={c.name}>
+                            {c.name}
+                          </option>
+                        ))}
+                      </optgroup>
+                    </>
+                  ) : filterType === "gasto" ? (
+                    categorias_gastos.map((c) => (
+                      <option key={c.name} value={c.name}>
+                        {c.name}
+                      </option>
+                    ))
+                  ) : (
+                    categorias_ingresos.map((c) => (
+                      <option key={c.name} value={c.name}>
+                        {c.name}
+                      </option>
+                    ))
+                  )}
+                </select>
               </div>
 
               <div>
-                <label>
-                  FECHA
-                  <input
-                    type="date"
-                    value={filterDate}
-                    onChange={(event) => {
-                      onFilterDateChange(event.target.value);
-                    }}
-                  />
-                </label>
+                <label>FECHA</label>
+                <input
+                  type="date"
+                  value={filterDate}
+                  onChange={(event) => {
+                    onFilterDateChange(event.target.value);
+                  }}
+                />
               </div>
 
               <div>

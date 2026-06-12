@@ -79,24 +79,27 @@ function ItemTransaccion({
     <li className="section-registros-items" id={id}>
       <div>
         {getCategoryIcon(categoria, tipo)}
-        <p>
-          <span>{descripcion ? descripcion : categoria}</span> <br />
-          {getCategotyColor(categoria, tipo)}{" "}
-          <span className="item-fecha">{fecha}</span>
+        <p className="category-descripcion">
+          <span>{descripcion ? descripcion : categoria}</span>
+          {getCategotyColor(categoria, tipo)}
         </p>
       </div>
 
       <div>
-        <b
-          style={{
-            color:
-              tipo === "ingreso"
-                ? "var(--text-color-green)"
-                : "var(--text-color-red)",
-          }}
-        >
-          {tipo === "ingreso" ? "+" : "-"} {formatearMonto(cantidad)}
-        </b>
+        <div className="month-date">
+          <b
+            style={{
+              color:
+                tipo === "ingreso"
+                  ? "var(--text-color-green)"
+                  : "var(--text-color-red)",
+            }}
+          >
+            {tipo === "ingreso" ? "+" : "-"} {formatearMonto(cantidad)}
+          </b>
+          <span className="item-fecha">{fecha}</span>
+        </div>
+
         <span className="item-icon-edit" onClick={onEdit}>
           {<AiFillEdit />}
         </span>

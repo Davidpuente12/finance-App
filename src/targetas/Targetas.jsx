@@ -30,11 +30,8 @@ function Targetas({ balanceTotal, totalIngresos, totalGastos, filterDate }) {
     <div className="main-cards">
       <article className="card-balance">
         <div>
-          <p>
-            BALANCE TOTAL{" "}
-            <b style={{ color: "var(--text-color-primary)" }}>
-              {selectedPeriodLabel}
-            </b>
+          <p className="card-textTitle">
+            BALANCE TOTAL <b className="card-textDate">{selectedPeriodLabel}</b>
           </p>
           <p className={balanceTotal < 0 ? "number-red" : "number"}>
             {formatearMonto(balanceTotal)}
@@ -54,7 +51,7 @@ function Targetas({ balanceTotal, totalIngresos, totalGastos, filterDate }) {
 
       <article className="card-ingreso">
         <div>
-          <p>TOTAL INGRESOS</p>
+          <p className="card-textTitle">TOTAL INGRESOS</p>
           <p className="number-green">
             <b>{formatearMonto(totalIngresos)}</b>
           </p>
@@ -67,7 +64,7 @@ function Targetas({ balanceTotal, totalIngresos, totalGastos, filterDate }) {
 
       <article className="card-gasto">
         <div>
-          <p>TOTAL GASTOS</p>
+          <p className="card-textTitle">TOTAL GASTOS</p>
           <p className="number-red">{formatearMonto(totalGastos)}</p>
         </div>
 

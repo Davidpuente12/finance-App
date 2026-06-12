@@ -6,11 +6,6 @@
   width: 100%;
   margin-top: 40px;
 }
-@media (max-width: 1200px) {
-  .section-registros {
-    width: 50%;
-  }
-}
 
 .section-registros-head {
   padding: 20px 20px 0;
@@ -76,6 +71,14 @@
 .section-registros-items div {
   display: flex;
   align-items: center;
+}
+.section-registros-items .category-descripcion {
+  display: flex;
+  flex-direction: column;
+}
+.section-registros-items .month-date {
+  display: flex;
+  flex-direction: column;
 }
 .section-registros-items .item-fecha {
   margin-left: 15px;
@@ -184,4 +187,59 @@
 .sectionRegistros-search:focus-within {
   border: 1px solid var(--button-primary);
   box-shadow: 0 0 5px rgb(79, 57, 246);
+}
+
+@media (max-width: 1160px) {
+  .section-registros {
+    width: 100%;
+  }
+}
+@media (max-width: 400px) {
+  .section-registros {
+    height: auto;
+  }
+  .section-registros-head {
+    padding: 10px;
+  }
+  .section-registros-lista {
+    padding: 10px;
+    min-height: auto;
+  }
+  .section-registros-items {
+    padding: 5px;
+    margin: 5px auto;
+  }
+  .item-categoryDate {
+    flex-direction: column;
+  }
+  .section-registros-pages {
+    margin-top: 20px;
+  }
+  .sectionRegistros-filtros-head {
+    padding: 10px;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .sectionRegistros-search {
+    width: 100%;
+  }
+  .registros-filtros-avanzados {
+    flex-direction: column;
+    padding: 10px;
+  }
+  .registros-filtros-avanzados input,
+  .registros-filtros-avanzados select {
+    width: 100%;
+    height: 30px;
+    border: none;
+    background: var(--bg-primary);
+    border-radius: 0;
+    border-bottom: 1px solid var(--border-primary);
+  }
+  .registros-filtros-avanzados button {
+    display: none;
+  }
+  .registros-filtros-avanzados label {
+    display: none;
+  }
 }

@@ -10,6 +10,8 @@ import { ResumenAnual } from "./Section_estadisticas/resumenAnual.jsx";
 import { ResumenIngresosVsGastos } from "./Section_estadisticas/resumenIngresosVsGastos.jsx";
 import { listaAñoActual } from "./utils/fechaActual.jsx";
 
+import { IoMdAdd } from "react-icons/io";
+
 function App() {
   const getTodayDate = () => new Date().toISOString().split("T")[0];
   // Estados de Datos
@@ -25,7 +27,7 @@ function App() {
   const [filterType, setFilterType] = useState("todos");
   const [filterCategory, setFilterCategory] = useState("todos");
   const [filterDate, setFilterDate] = useState(getTodayDate);
-  console.log(lista);
+
   const handleSearchQueryChange = (value) => {
     setSearchQuery(value);
   };
@@ -204,6 +206,10 @@ function App() {
           ></Formulario>
         </Modal>
       )}
+
+      <button className="button-modal-movil" onClick={OpenModal}>
+        <IoMdAdd />
+      </button>
     </>
   );
 }
