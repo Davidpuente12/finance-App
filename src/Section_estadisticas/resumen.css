@@ -86,7 +86,7 @@
     width: 60%;
   }
 }
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   .resumenMensualInicio-header {
     height: 30px;
     padding: 10px;
@@ -151,7 +151,7 @@
   font-weight: 900;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   .seccionResumenEstadisticas {
     flex-direction: column;
     gap: 15px;
@@ -231,7 +231,7 @@
   font-size: var(--text-small);
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   .resumen-anual {
     margin-top: 20px;
   }
@@ -342,7 +342,7 @@
   padding-top: 4px;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   .resumen-ingVsEgre {
     margin-top: 20px;
   }

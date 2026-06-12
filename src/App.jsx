@@ -189,14 +189,6 @@ function App() {
         </main>
       )}
 
-      <footer>
-        <p>Finance App • Gestor de Finanzas Personales</p>
-        <p className="footer-derechos">
-          © 2026 Todos los derechos reservados. Tus datos se guardan de forma
-          local y privada.
-        </p>
-      </footer>
-
       {modal && (
         <Modal>
           <Formulario
@@ -210,6 +202,14 @@ function App() {
       <button className="button-modal-movil" onClick={OpenModal}>
         <IoMdAdd />
       </button>
+
+      <footer>
+        <p>Finance App • Gestor de Finanzas Personales</p>
+        <p className="footer-derechos">
+          © 2026 Todos los derechos reservados. Tus datos se guardan de forma
+          local y privada.
+        </p>
+      </footer>
     </>
   );
 }
