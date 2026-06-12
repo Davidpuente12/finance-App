@@ -6,18 +6,18 @@ function Targetas({ balanceTotal, totalIngresos, totalGastos, filterDate }) {
     if (!dateString) return "ACTUAL";
     const [year, month] = dateString.split("-");
     const monthNames = [
-      "ENERO",
-      "FEBRERO",
-      "MARZO",
-      "ABRIL",
-      "MAYO",
-      "JUNIO",
-      "JULIO",
-      "AGOSTO",
-      "SEPTIEMBRE",
-      "OCTUBRE",
-      "NOVIEMBRE",
-      "DICIEMBRE",
+      "Ene",
+      "Feb",
+      "Mar",
+      "Abr",
+      "May",
+      "Jun",
+      "Jul",
+      "Ago",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dic",
     ];
     const monthIndex = Number(month) - 1;
     if (monthIndex < 0 || monthIndex > 11) return "ACTUAL";
@@ -30,9 +30,7 @@ function Targetas({ balanceTotal, totalIngresos, totalGastos, filterDate }) {
     <div className="main-cards">
       <article className="card-balance">
         <div>
-          <p className="card-textTitle">
-            BALANCE TOTAL <b className="card-textDate">{selectedPeriodLabel}</b>
-          </p>
+          <p className="card-textTitle">BALANCE TOTAL</p>
           <p className={balanceTotal < 0 ? "number-red" : "number"}>
             {formatearMonto(balanceTotal)}
           </p>
@@ -44,7 +42,8 @@ function Targetas({ balanceTotal, totalIngresos, totalGastos, filterDate }) {
           </p>
         ) : (
           <p className="cards-textSmall">
-            <b className="card-textGreen">Flujo saludable</b> en este periodo.
+            <b className="card-textGreen">Flujo saludable</b>{" "}
+            <b className="card-textDate">{selectedPeriodLabel}</b>
           </p>
         )}
       </article>
@@ -58,7 +57,7 @@ function Targetas({ balanceTotal, totalIngresos, totalGastos, filterDate }) {
         </div>
 
         <p className="cards-textSmall">
-          <span className="green">suma total</span> de fondos añadidos.
+          <span className="green">suma total</span> de ingresos.
         </p>
       </article>
 
@@ -69,7 +68,7 @@ function Targetas({ balanceTotal, totalIngresos, totalGastos, filterDate }) {
         </div>
 
         <p className="cards-textSmall">
-          <span className="red">suma total</span> de fondos añadidos.
+          <span className="red">suma total</span> de gastos.
         </p>
       </article>
     </div>

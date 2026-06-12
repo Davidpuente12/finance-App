@@ -2,11 +2,11 @@ import { useMemo } from "react";
 import { ItemTransaccion } from "./components/ItemTransaccion";
 import { IoMdSearch } from "react-icons/io";
 import { categorias_gastos, categorias_ingresos } from "../utils/categorias";
-import { listaMesActual } from "../utils/fechaActual";
 
 // css
 import "./section_registros.css";
 import { ImOpt } from "react-icons/im";
+import { EstadoDeCarga } from "../utils/estadoDeCarga";
 
 function SectionRegistros({
   currentTab,
@@ -77,9 +77,7 @@ function SectionRegistros({
           </div>
 
           <ul className="section-registros-lista">
-            {loading && (
-              <p style={{ textAlign: "center" }}>Estamos cargando...</p>
-            )}
+            {loading && <EstadoDeCarga />}
             {lista.length === 0 && !loading && (
               <p style={{ textAlign: "center" }}>
                 No tienes transacciones registradas.!
@@ -195,14 +193,11 @@ function SectionRegistros({
           </section>
 
           <section className="section-registros-pages">
-            <ul
-              className="section-registros-lista"
-              style={{ borderRadius: "15px" }}
-            >
+            <ul className="section-registros-lista">
               {loading && (
                 <p style={{ textAlign: "center" }}>Estamos cargando...</p>
               )}
-              {listaMesActual(lista).length === 0 && !loading && (
+              {filteredTransactions.length === 0 && !loading && (
                 <p style={{ textAlign: "center" }}>
                   No tienes transacciones registradas este mes!
                 </p>

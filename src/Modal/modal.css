@@ -33,11 +33,6 @@
     transform: scale(1);
   }
 }
-@media (max-width: 1200px) {
-  .section-modal section {
-    width: 60%;
-  }
-}
 
 .section-modal-header {
   padding-bottom: 20px;
@@ -176,7 +171,13 @@
   background: rgb(93, 73, 248);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1200px) {
+  .section-modal section {
+    width: 60%;
+  }
+}
+
+@media (max-width: 780px) {
   .section-modal section {
     width: 80%;
   }
@@ -185,7 +186,7 @@
     overflow-x: auto;
   }
 }
-@media (max-width: 450px) {
+@media (max-width: 580px) {
   .section-modal section {
     width: 100%;
     height: 100%;

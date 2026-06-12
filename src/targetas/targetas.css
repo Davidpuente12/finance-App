@@ -27,23 +27,24 @@
   color: var(--text-secondary);
 }
 .main-cards .number {
-  font-size: clamp(1.7rem, 2.6vw, 2.8rem);
+  font-size: clamp(1.6rem, 2.6vw, 2.6rem);
   font-weight: 900;
   color: var(--text-primary);
 }
 .main-cards .number-green {
-  font-size: clamp(1.7rem, 2.6vw, 2.8rem);
+  font-size: clamp(1.6rem, 2.6vw, 2.6rem);
   font-weight: 900;
   color: var(--text-color-green);
 }
 .main-cards .number-red {
-  font-size: clamp(1.7rem, 2.6vw, 2.8rem);
+  font-size: clamp(1.6rem, 2.6vw, 2.6rem);
   font-weight: 900;
   color: var(--text-color-red);
 }
 
 .cards-textSmall {
   margin-top: 10px;
+  font-size: var(--text-small);
 }
 .card-textGreen {
   color: var(--text-color-green);
@@ -53,13 +54,9 @@
 }
 .card-textDate {
   color: var(--text-color-primary);
+  font-size: var(--text-small);
 }
 
-@media (max-width: 1440px) {
-  .main-cards {
-    width: 70%;
-  }
-}
 @media (max-width: 1160px) {
   .main-cards {
     width: 75%;
@@ -70,37 +67,37 @@
     width: 85%;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 780px) {
   .main-cards {
-    width: 95%;
-    height: 8vh;
-    margin-top: 10px;
-  }
-  .cards-textSmall {
-    display: none;
-  }
-  .card-textDate {
-    display: none;
-  }
-  .main-cards article {
-    padding: 8px;
+    width: 90%;
+    height: 15vh;
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 580px) {
+  .main-cards {
+    width: 100%;
+    height: 7vh;
+    margin-top: 0px;
+    background-color: var(--bg-body);
+  }
   .main-cards article {
-    box-shadow: 0 4px 5px black;
+    /* background: linear-gradient(var(--bg-secondary), var(--bg-primary)); */
+    background: var(--bg-body);
+    width: 100%;
+    height: 100%;
+    box-shadow: none;
+    border-radius: 0;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
   }
   .card-textTitle {
-    font-size: 1.1rem;
-  }
-  .main-cards .number {
     font-size: var(--text-small);
   }
-  .main-cards .number-green {
-    font-size: var(--text-small);
-  }
-  .main-cards .number-red {
-    font-size: var(--text-small);
+  .cards-textSmall {
+    display: none;
   }
 }

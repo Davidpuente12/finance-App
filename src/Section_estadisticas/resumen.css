@@ -71,13 +71,12 @@
   gap: 20px;
 }
 
-@media (max-width: 1160px) {
+@media (max-width: 780px) {
   .resumenMensualInicio {
     width: 100%;
   }
   .resumenMensualInicio-body {
     flex-direction: row;
-    gap: 50px;
   }
   .resumenMensualInicio-grafico {
     width: 40%;
@@ -86,10 +85,10 @@
     width: 60%;
   }
 }
-@media (max-width: 450px) {
+@media (max-width: 580px) {
   .resumenMensualInicio-header {
-    height: 30px;
-    padding: 10px;
+    height: auto;
+    padding: 15px;
   }
   .resumenMensualInicio-body {
     flex-direction: column;
@@ -151,7 +150,7 @@
   font-weight: 900;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 580px) {
   .seccionResumenEstadisticas {
     flex-direction: column;
     gap: 15px;
@@ -231,19 +230,21 @@
   font-size: var(--text-small);
 }
 
-@media (max-width: 450px) {
+@media (max-width: 780px) {
   .resumen-anual {
     margin-top: 20px;
   }
   .resumen-anual-body {
     overflow-x: scroll;
   }
+  .resumen-anual-body .barras-wrapper {
+    justify-content: start;
+  }
+}
+@media (max-width: 580px) {
   .resumen-anual-info {
     flex-direction: column;
     gap: 5px;
-  }
-  .resumen-anual-body .barras-wrapper {
-    justify-content: start;
   }
 }
 
@@ -293,14 +294,6 @@
   background-color: var(--button-red);
   border-radius: 5px;
 }
-@media (max-width: 1200px) {
-  .barra-ingresos {
-    width: 20px;
-  }
-  .barra-gastos {
-    width: 20px;
-  }
-}
 .barras-info {
   margin-top: 10px;
   font-size: var(--text-small);
@@ -342,11 +335,17 @@
   padding-top: 4px;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 780px) {
   .resumen-ingVsEgre {
     margin-top: 20px;
   }
   .resumen-ingVsEgre-body {
     overflow-x: scroll;
+  }
+  .barra-ingresos {
+    width: 20px;
+  }
+  .barra-gastos {
+    width: 20px;
   }
 }
