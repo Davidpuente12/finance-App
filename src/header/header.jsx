@@ -14,7 +14,10 @@ function Header({ OpenModal, currentTab, setCurrentTab }) {
             currentTab === "inicio" ? "button-active" : "button-inActive"
           }
         >
-          <MdSpaceDashboard /> Inicio
+          <span className="header-navegation-logo">
+            <MdSpaceDashboard />
+          </span>
+          Inicio
         </button>
         <button
           onClick={() => setCurrentTab("registros")}
@@ -22,7 +25,10 @@ function Header({ OpenModal, currentTab, setCurrentTab }) {
             currentTab === "registros" ? "button-active" : "button-inActive"
           }
         >
-          <TiThMenu /> Registros
+          <span className="header-navegation-logo">
+            <TiThMenu />
+          </span>
+          Registros
         </button>
         <button
           onClick={() => setCurrentTab("estadisticas")}
@@ -30,7 +36,10 @@ function Header({ OpenModal, currentTab, setCurrentTab }) {
             currentTab === "estadisticas" ? "button-active" : "button-inActive"
           }
         >
-          <RiAlignItemBottomFill /> Estadisticas
+          <span className="header-navegation-logo">
+            <RiAlignItemBottomFill />
+          </span>
+          Estadisticas
         </button>
       </div>
       <button className="button-modal" onClick={OpenModal}>

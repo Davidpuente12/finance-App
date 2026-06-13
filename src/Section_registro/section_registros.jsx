@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { ItemTransaccion } from "./components/ItemTransaccion";
 import { IoMdSearch } from "react-icons/io";
 import { categorias_gastos, categorias_ingresos } from "../utils/categorias";
@@ -24,6 +24,37 @@ function SectionRegistros({
   onFilterDateChange,
   resetFilters,
 }) {
+  const [showMonthModal, setShowMonthModal] = useState(false);
+  const monthNames = [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre",
+  ];
+
+  const handleMonthSelect = (monthIndex) => {
+    const year = filterDate
+      ? filterDate.split("-")[0]
+      : new Date().getFullYear();
+    const month = String(monthIndex + 1).padStart(2, "0");
+    onFilterDateChange(`${year}-${month}`);
+    setShowMonthModal(false);
+  };
+
+  const currentDate = new Date();
+  const currentMonthLabel = `${monthNames[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
+  const selectedMonthLabel = filterDate
+    ? `${monthNames[Number(filterDate.split("-")[1]) - 1] ?? monthNames[currentDate.getMonth()]} ${filterDate.split("-")[0]}`
+    : currentMonthLabel;
+
   // fILTROS DEL BUSCADOR , CATEGORIAS Y TIPOS DE GASTOS
   const filteredTransactions = useMemo(() => {
     return lista
@@ -173,7 +204,7 @@ function SectionRegistros({
                 </select>
               </div>
 
-              <div>
+              <div className="input-date">
                 <label>FECHA</label>
                 <input
                   type="date"
@@ -184,8 +215,57 @@ function SectionRegistros({
                 />
               </div>
 
+              <div className="contain-btn-mes">
+                <button
+                  className="btn-mes"
+                  type="button"
+                  onClick={() => setShowMonthModal(true)}
+                >
+                  {selectedMonthLabel}
+                </button>
+
+                {showMonthModal && (
+                  <div
+                    className="month-modal-backdrop"
+                    onClick={() => setShowMonthModal(false)}
+                  >
+                    <div
+                      className="month-modal"
+                      // onClick={(e) => e.stopPropagation()}
+                    >
+                      <div className="month-modal-header">
+                        <h3>Selecciona un mes</h3>
+                        <button
+                          type="button"
+                          onClick={() => setShowMonthModal(false)}
+                          className="month-modal-btn-closed"
+                        >
+                          ⨉
+                        </button>
+                      </div>
+
+                      <div className="month-modal-buttons">
+                        {monthNames.map((name, index) => (
+                          <button
+                            key={name}
+                            type="button"
+                            onClick={() => handleMonthSelect(index)}
+                          >
+                            {name}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+
               <div>
-                <button type="button" onClick={resetFilters}>
+                <button
+                  className="btn-reset"
+                  type="button"
+                  onClick={resetFilters}
+                >
                   Resetear
                 </button>
               </div>

@@ -56,6 +56,9 @@
   color: var(--text-color-primary);
   font-size: var(--text-small);
 }
+.card-textTitle-small {
+  display: none;
+}
 
 @media (max-width: 1160px) {
   .main-cards {
@@ -77,13 +80,12 @@
 @media (max-width: 580px) {
   .main-cards {
     width: 100%;
-    height: 7vh;
+    height: 10vh;
     margin-top: 0px;
-    background-color: var(--bg-body);
+    background: var(--bg-primary);
   }
   .main-cards article {
-    /* background: linear-gradient(var(--bg-secondary), var(--bg-primary)); */
-    background: var(--bg-body);
+    background: transparent;
     width: 100%;
     height: 100%;
     box-shadow: none;
@@ -95,7 +97,10 @@
     padding: 0;
   }
   .card-textTitle {
-    font-size: var(--text-small);
+    display: none;
+  }
+  .card-textTitle-small {
+    display: flex;
   }
   .cards-textSmall {
     display: none;

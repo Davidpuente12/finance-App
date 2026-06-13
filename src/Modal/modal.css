@@ -181,10 +181,6 @@
   .section-modal section {
     width: 80%;
   }
-  .categories-list {
-    gap: 5px;
-    overflow-x: auto;
-  }
 }
 @media (max-width: 580px) {
   .section-modal section {
@@ -193,7 +189,19 @@
     margin-top: 0;
     border-radius: 0;
   }
-  .formulario {
-    height: 100%;
+  .formulario input {
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-bottom: 1px solid var(--border-primary);
+    background-color: #101010;
+    border-radius: 0;
+    outline: none;
+  }
+  .formulario .input-active {
+    border-bottom: 2px solid var(--button-primary);
+  }
+  .categories-list {
+    grid-template-columns: repeat(5, 1fr);
   }
 }

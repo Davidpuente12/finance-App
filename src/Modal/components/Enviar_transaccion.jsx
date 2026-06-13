@@ -77,6 +77,7 @@ function EnviarTransaccion({
                 value={categoria}
                 required
                 onChange={(event) => setCategoria(event.target.value)}
+                className={categoria && "input-active"}
               />
               <input
                 type="text"
@@ -85,6 +86,7 @@ function EnviarTransaccion({
                 required
                 value={montoFormat}
                 onChange={handleMontoChange}
+                className={montoFormat && "input-active"}
               />
               <input
                 type="date"
@@ -96,6 +98,7 @@ function EnviarTransaccion({
                 placeholder="Descripcion"
                 value={descripcion}
                 onChange={(event) => setDescripcion(event.target.value)}
+                className={descripcion && "input-active"}
               />
             </div>
             <button type="submit">
