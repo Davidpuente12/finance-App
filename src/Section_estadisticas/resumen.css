@@ -125,6 +125,14 @@
   font-size: var(--text-small);
   color: var(--text-secondary);
 }
+.text-porcentajes {
+  font-size: var(--text-small);
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+}
+
 .seccionResumenEstadisticas-grafico .grafico-circular {
   width: 100%;
   height: 80%;

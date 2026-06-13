@@ -132,17 +132,7 @@ function ResumenMensual({
           <div className="seccionResumenEstadisticas-grafico">
             <div className="seccionResumenEstadisticas-title">
               <h3>Resumen Mensual</h3>
-              <p>
-                De todas las categorias del mes actual. Aqui podras encontrar:{" "}
-                <br />
-                <span style={{ color: "var(--text-color-primary)" }}>
-                  Porcentaje sobre total de Gastos
-                </span>
-                <br />
-                <span style={{ color: "var(--text-color-green)" }}>
-                  Porcentaje sobre total de Ingresos
-                </span>
-              </p>
+              <p>Todas las categorias del mes actual.</p>
             </div>
 
             <div className="grafico-circular">
@@ -186,6 +176,16 @@ function ResumenMensual({
           </div>
 
           <div className="seccionResumenEstadisticas-lista">
+            <div className="text-porcentajes">
+              <p style={{ color: "var(--text-color-primary)" }}>
+                % sobre gastos
+              </p>
+
+              <p style={{ color: "var(--text-color-green)" }}>
+                % sobre ingresos
+              </p>
+            </div>
+
             {graficos.map((item, index) => (
               <div key={index} className="resumenMensual-itemsLista">
                 <p>

@@ -3,10 +3,13 @@ import { ItemTransaccion } from "./components/ItemTransaccion";
 import { IoMdSearch } from "react-icons/io";
 import { categorias_gastos, categorias_ingresos } from "../utils/categorias";
 
-// css
+// css - icon
 import "./section_registros.css";
 import { ImOpt } from "react-icons/im";
+
+// estados de carga
 import { EstadoDeCarga } from "../utils/estadoDeCarga";
+import { EstadoListaVacia } from "../utils/estadoListaVacia";
 
 function SectionRegistros({
   currentTab,
@@ -45,15 +48,18 @@ function SectionRegistros({
       ? filterDate.split("-")[0]
       : new Date().getFullYear();
     const month = String(monthIndex + 1).padStart(2, "0");
-    onFilterDateChange(`${year}-${month}`);
+    onFilterDateChange(`${year}-${month}-01`);
     setShowMonthModal(false);
   };
 
   const currentDate = new Date();
-  const currentMonthLabel = `${monthNames[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
-  const selectedMonthLabel = filterDate
-    ? `${monthNames[Number(filterDate.split("-")[1]) - 1] ?? monthNames[currentDate.getMonth()]} ${filterDate.split("-")[0]}`
-    : currentMonthLabel;
+  const filterDateParts = filterDate ? filterDate.split("-") : [];
+  const selectedYear = filterDateParts[0] || currentDate.getFullYear();
+  const selectedMonthIndex = filterDateParts[1]
+    ? Number(filterDateParts[1]) - 1
+    : currentDate.getMonth();
+
+  const selectedMonthLabel = `${monthNames[selectedMonthIndex] ?? monthNames[currentDate.getMonth()]} ${selectedYear}`;
 
   // fILTROS DEL BUSCADOR , CATEGORIAS Y TIPOS DE GASTOS
   const filteredTransactions = useMemo(() => {
@@ -110,9 +116,7 @@ function SectionRegistros({
           <ul className="section-registros-lista">
             {loading && <EstadoDeCarga />}
             {lista.length === 0 && !loading && (
-              <p style={{ textAlign: "center" }}>
-                No tienes transacciones registradas.!
-              </p>
+              <EstadoListaVacia currentTab={currentTab} />
             )}
 
             {filteredTransactions.slice(0, 5).map((item) => {
@@ -204,7 +208,7 @@ function SectionRegistros({
                 </select>
               </div>
 
-              <div className="input-date">
+              <div className="contain-input-date">
                 <label>FECHA</label>
                 <input
                   type="date"
@@ -278,9 +282,7 @@ function SectionRegistros({
                 <p style={{ textAlign: "center" }}>Estamos cargando...</p>
               )}
               {filteredTransactions.length === 0 && !loading && (
-                <p style={{ textAlign: "center" }}>
-                  No tienes transacciones registradas este mes!
-                </p>
+                <EstadoListaVacia currentTab={currentTab} />
               )}
 
               {filteredTransactions.map((item) => {

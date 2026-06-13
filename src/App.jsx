@@ -155,6 +155,7 @@ function App() {
       {currentTab === "registros" && (
         <main>
           <SectionRegistros
+            currentTab={currentTab}
             lista={lista}
             actualizarLista={actualizarLista}
             loading={loading}
