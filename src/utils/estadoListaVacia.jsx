@@ -1,12 +1,6 @@
-function EstadoListaVacia({ currentTab }) {
+function EstadoListaVacia() {
   return (
-    <div
-      className={
-        currentTab === "inicio"
-          ? "estado-lista-vacia"
-          : "estado-lista-vacia dark"
-      }
-    >
+    <div className={"estado-lista-vacia"}>
       <div></div>
       <div></div>
       <div></div>

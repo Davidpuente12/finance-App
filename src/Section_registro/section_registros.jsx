@@ -115,9 +115,7 @@ function SectionRegistros({
 
           <ul className="section-registros-lista">
             {loading && <EstadoDeCarga />}
-            {lista.length === 0 && !loading && (
-              <EstadoListaVacia currentTab={currentTab} />
-            )}
+            {lista.length === 0 && !loading && <EstadoListaVacia />}
 
             {filteredTransactions.slice(0, 5).map((item) => {
               return (
@@ -235,7 +233,7 @@ function SectionRegistros({
                   >
                     <div
                       className="month-modal"
-                      // onClick={(e) => e.stopPropagation()}
+                      onClick={(e) => e.stopPropagation()}
                     >
                       <div className="month-modal-header">
                         <h3>Selecciona un mes</h3>
@@ -282,7 +280,7 @@ function SectionRegistros({
                 <p style={{ textAlign: "center" }}>Estamos cargando...</p>
               )}
               {filteredTransactions.length === 0 && !loading && (
-                <EstadoListaVacia currentTab={currentTab} />
+                <EstadoListaVacia />
               )}
 
               {filteredTransactions.map((item) => {
@@ -297,6 +295,7 @@ function SectionRegistros({
                     descripcion={item.descripcion}
                     onDelete={() => eliminarItem(item.id)}
                     onEdit={() => onEdit(item)}
+                    onTouchStart={() => onEdit(item)}
                   />
                 );
               })}

@@ -15,34 +15,16 @@ const getCategoryIcon = (categoria, tipo) => {
 
   return cat ? (
     <span
+      className="category-icon"
       style={{
-        width: "25px",
-        height: "25px",
-        marginRight: "15px",
-        display: "inline-flex",
-        justifyContent: "center",
-        alignItems: "center",
         border: `1px solid ${cat.color}`,
-        background: "black",
-        borderRadius: "5px",
+        background: window.innerWidth < 580 && cat.color,
       }}
     >
       {cat.icon}
     </span>
   ) : (
-    <span
-      style={{
-        width: "25px",
-        height: "25px",
-        marginRight: "15px",
-        display: "inline-flex",
-        justifyContent: "center",
-        alignItems: "center",
-        border: "1px solid var(--border-primary)",
-        borderRadius: "5px",
-        background: "black",
-      }}
-    >
+    <span className="category-icon">
       <IoWalletOutline />
     </span>
   );
@@ -79,6 +61,7 @@ function ItemTransaccion({
     <li className="section-registros-items" id={id}>
       <div>
         {getCategoryIcon(categoria, tipo)}
+
         <p className="category-descripcion">
           <span>{descripcion ? descripcion : categoria}</span>
           {getCategotyColor(categoria, tipo)}
@@ -95,7 +78,7 @@ function ItemTransaccion({
                   : "var(--text-color-red)",
             }}
           >
-            {tipo === "ingreso" ? "+" : "-"} {formatearMonto(cantidad)}
+            {formatearMonto(cantidad)}
           </b>
           <span className="item-fecha">{fecha}</span>
         </div>
