@@ -3,6 +3,7 @@ import { IoWalletOutline } from "react-icons/io5";
 import { AiFillEdit } from "react-icons/ai";
 import { categorias_gastos, categorias_ingresos } from "../../utils/categorias";
 import { formatearMonto } from "../../utils/formatearMonto";
+import { useRef } from "react";
 
 const getCategoryIcon = (categoria, tipo) => {
   let cat;
@@ -57,8 +58,30 @@ function ItemTransaccion({
   onDelete,
   onEdit,
 }) {
+  const touchStartRef = useRef({ x: 0, y: 0 });
+
+  const handleTouchStart = (event) => {
+    const touch = event.touches[0];
+    touchStartRef.current = { x: touch.clientX, y: touch.clientY };
+  };
+
+  const handleTouchEnd = (event) => {
+    const touch = event.changedTouches[0];
+    const dx = Math.abs(touch.clientX - touchStartRef.current.x);
+    const dy = Math.abs(touch.clientY - touchStartRef.current.y);
+
+    if (dx < 10 && dy < 10) {
+      onEdit();
+    }
+  };
+
   return (
-    <li className="section-registros-items" id={id} onTouchStart={onEdit}>
+    <li
+      className="section-registros-items"
+      id={id}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       <div>
         {getCategoryIcon(categoria, tipo)}
 
