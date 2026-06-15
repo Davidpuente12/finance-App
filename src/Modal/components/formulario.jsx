@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
+import { FaTrashAlt } from "react-icons/fa";
 import { EnviarTransaccion } from "./Enviar_transaccion";
 import "../modal.css";
 
-function Formulario({ guardarTransaccion, transaccionAeditar, ClosedModal }) {
+function Formulario({
+  guardarTransaccion,
+  transaccionAeditar,
+  ClosedModal,
+  onDelete,
+}) {
   const [tipoDeTransaccion, setTipoDeTransaccion] = useState("gasto");
 
   useEffect(() => {
@@ -27,9 +33,23 @@ function Formulario({ guardarTransaccion, transaccionAeditar, ClosedModal }) {
       <section>
         <div className="section-modal-header">
           <h3>Registrar Operacion</h3>
-          <span className="icon-closed" onClick={ClosedModal}>
-            ⨉
-          </span>
+          <div className="icons-modal">
+            {transaccionAeditar && onDelete && (
+              <span
+                className="icon-delete-modal"
+                onClick={() => {
+                  onDelete(transaccionAeditar.id);
+                  ClosedModal();
+                }}
+              >
+                <FaTrashAlt />
+              </span>
+            )}
+
+            <span className="icon-closed" onClick={ClosedModal}>
+              ⨉
+            </span>
+          </div>
         </div>
 
         <div className="section-modal-panel">

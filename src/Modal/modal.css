@@ -38,12 +38,21 @@
   padding-bottom: 20px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
-.section-modal-header .icon-closed {
-  font-size: 2rem;
+.icons-modal {
+  display: flex;
+  gap: 40px;
+}
+.icon-closed,
+.icon-delete-modal {
+  font-size: 1.5rem;
   font-weight: bold;
   color: var(--text-secondary);
   cursor: pointer;
+}
+.icon-delete-modal {
+  display: none;
 }
 .section-modal-header .icon-closed:hover {
   color: var(--text-primary);
@@ -203,5 +212,8 @@
   }
   .categories-list {
     grid-template-columns: repeat(5, 1fr);
+  }
+  .icon-delete-modal {
+    display: block;
   }
 }

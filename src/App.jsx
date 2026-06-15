@@ -103,7 +103,6 @@ function App() {
   function abrirModalEditar(item) {
     setTransaccionAeditar(item);
     setModal(true);
-    console.log(transaccionAeditar);
   }
   function ClosedModal() {
     setModal(false);
@@ -196,6 +195,9 @@ function App() {
             guardarTransaccion={guardarTransaccion}
             transaccionAeditar={transaccionAeditar}
             ClosedModal={ClosedModal}
+            onDelete={(itemId) => {
+              actualizarLista(lista.filter((item) => item.id !== itemId));
+            }}
           ></Formulario>
         </Modal>
       )}

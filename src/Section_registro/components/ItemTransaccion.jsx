@@ -58,7 +58,7 @@ function ItemTransaccion({
   onEdit,
 }) {
   return (
-    <li className="section-registros-items" id={id}>
+    <li className="section-registros-items" id={id} onTouchStart={onEdit}>
       <div>
         {getCategoryIcon(categoria, tipo)}
 

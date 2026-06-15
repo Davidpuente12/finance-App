@@ -295,7 +295,6 @@ function SectionRegistros({
                     descripcion={item.descripcion}
                     onDelete={() => eliminarItem(item.id)}
                     onEdit={() => onEdit(item)}
-                    onTouchStart={() => onEdit(item)}
                   />
                 );
               })}
