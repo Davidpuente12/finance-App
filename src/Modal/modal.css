@@ -36,17 +36,15 @@
 
 .section-modal-header {
   padding-bottom: 20px;
+}
+.content-principal {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.icons-modal {
-  display: flex;
-  gap: 40px;
-}
 .icon-closed,
 .icon-delete-modal {
-  font-size: 1.5rem;
+  font-size: var(--text-large);
   font-weight: bold;
   color: var(--text-secondary);
   cursor: pointer;
@@ -56,6 +54,9 @@
 }
 .section-modal-header .icon-closed:hover {
   color: var(--text-primary);
+}
+.button-submit-movil {
+  display: none;
 }
 .section-modal-panel {
   width: 100%;
@@ -90,14 +91,9 @@
 /* Seccion gastos */
 .seccion-modal-formulario {
   height: 400px;
-  margin-top: 10px;
+  margin-top: 30px;
   position: relative;
 }
-.seccion-modal-formulario p {
-  margin: 15px 0;
-  color: var(--text-secondary);
-}
-
 .categories-list {
   width: 100%;
   display: grid;
@@ -170,8 +166,7 @@
   padding: 10px 15px;
   border: none;
   border-radius: 10px;
-  font-size: inherit;
-  font-weight: bold;
+  font-size: var(--text-large);
   cursor: pointer;
   position: absolute;
   bottom: -20px;
@@ -198,17 +193,43 @@
     margin-top: 0;
     border-radius: 0;
   }
+  .section-modal-header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .content-principal {
+    justify-content: initial;
+    gap: 20px;
+  }
+  .section-modal-header h3 {
+    order: 2;
+  }
+  .section-modal-header .icon-closed {
+    order: 1;
+  }
+  .button-submit-movil {
+    display: block;
+    width: 50px;
+    color: var(--text-color-primary);
+    font-size: var(--text-large);
+    font-weight: 500;
+  }
+
   .formulario input {
     width: 100%;
-    height: 50px;
+    height: 55px;
     border: none;
     border-bottom: 1px solid var(--border-primary);
-    background-color: #101010;
+    background-color: var(--bg-body);
     border-radius: 0;
     outline: none;
+    font-size: var(--text-large);
   }
   .formulario .input-active {
-    border-bottom: 2px solid var(--button-primary);
+    border-bottom: 1px solid var(--button-primary);
+  }
+  .formulario button {
+    display: none;
   }
   .categories-list {
     grid-template-columns: repeat(5, 1fr);

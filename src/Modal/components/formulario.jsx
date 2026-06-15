@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { EnviarTransaccion } from "./Enviar_transaccion";
 import "../modal.css";
@@ -10,10 +10,17 @@ function Formulario({
   onDelete,
 }) {
   const [tipoDeTransaccion, setTipoDeTransaccion] = useState("gasto");
+  const formularioRef = useRef(null);
+
+  function handleSubmitMovil() {
+    formularioRef.current?.requestSubmit();
+  }
 
   useEffect(() => {
     if (transaccionAeditar?.tipo === "ingreso") {
       setTipoDeTransaccion("ingreso");
+    } else {
+      setTipoDeTransaccion("gasto");
     }
   }, [transaccionAeditar]);
 
@@ -32,8 +39,15 @@ function Formulario({
     <div className="section-modal">
       <section>
         <div className="section-modal-header">
-          <h3>Registrar Operacion</h3>
-          <div className="icons-modal">
+          <div className="content-principal">
+            <h3>Registrar Operacion</h3>
+
+            <span className="icon-closed" onClick={ClosedModal}>
+              ⨉
+            </span>
+          </div>
+
+          <div className="content-principal">
             {transaccionAeditar && onDelete && (
               <span
                 className="icon-delete-modal"
@@ -46,8 +60,18 @@ function Formulario({
               </span>
             )}
 
-            <span className="icon-closed" onClick={ClosedModal}>
-              ⨉
+            <span
+              className="button-submit-movil"
+              onClick={handleSubmitMovil}
+              role="button"
+              tabIndex={0}
+              onKeyPress={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  handleSubmitMovil();
+                }
+              }}
+            >
+              Enviar
             </span>
           </div>
         </div>
@@ -75,6 +99,7 @@ function Formulario({
           DatosDelFormulario={DatosDelFormulario}
           transaccionAeditar={transaccionAeditar}
           tipoDeTransaccion={tipoDeTransaccion}
+          formRef={formularioRef}
         />
       </section>
     </div>

@@ -6,6 +6,7 @@ function EnviarTransaccion({
   DatosDelFormulario,
   transaccionAeditar,
   tipoDeTransaccion,
+  formRef,
 }) {
   const [categoria, setCategoria] = useState("");
   const [monto, setMonto] = useState("");
@@ -49,7 +50,6 @@ function EnviarTransaccion({
     <>
       {tipoDeTransaccion === "ingreso" ? (
         <div className="seccion-modal-formulario">
-          <p>Ingresa el tipo de ingreso</p>
           <ul className="categories-list">
             {categorias_ingresos.map((item, index) => (
               <li
@@ -64,6 +64,7 @@ function EnviarTransaccion({
           </ul>
 
           <form
+            ref={formRef}
             className="formulario"
             onSubmit={(event) => {
               event.preventDefault();
@@ -109,7 +110,6 @@ function EnviarTransaccion({
       ) : (
         // gastos
         <div className="seccion-modal-formulario">
-          <p>Categorias predeterminadas</p>
           <ul className="categories-list">
             {categorias_gastos.map((item, index) => (
               <li
@@ -124,6 +124,7 @@ function EnviarTransaccion({
           </ul>
 
           <form
+            ref={formRef}
             className="formulario"
             onSubmit={(event) => {
               event.preventDefault();
@@ -137,6 +138,7 @@ function EnviarTransaccion({
                 value={categoria}
                 required
                 onChange={(event) => setCategoria(event.target.value)}
+                className={categoria && "input-active"}
               />
               <input
                 type="text"
@@ -145,6 +147,7 @@ function EnviarTransaccion({
                 required
                 value={montoFormat}
                 onChange={handleMontoChange}
+                className={montoFormat && "input-active"}
               />
               <input
                 type="date"
@@ -156,6 +159,7 @@ function EnviarTransaccion({
                 placeholder="Descripcion"
                 value={descripcion}
                 onChange={(event) => setDescripcion(event.target.value)}
+                className={descripcion && "input-active"}
               />
             </div>
             <button type="submit">

@@ -17,7 +17,7 @@
   --text-color-green: rgb(0, 212, 146);
   --text-color-red: rgb(255, 83, 83);
 
-  --text-large: clamp(1.6rem, 1.5vw, 1.8rem);
+  --text-large: 1.8rem;
   --text-medium: 1.6rem;
   --text-small: 1.4rem;
 
@@ -147,6 +147,7 @@ section {
 }
 section h3 {
   font-size: var(--text-large);
+  font-weight: 600;
 }
 
 footer {
